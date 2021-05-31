@@ -1,0 +1,52 @@
+.flex {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.download {
+    padding-top: 90px;
+    // padding-left: 250px;
+}
+
+.pic-div {
+    // padding-left: 180px;
+    padding-top: 60px;
+    width: 26%;
+    height: 10%;
+
+}
+.app {
+ &-btn {
+  width: 45%;
+  max-width: 160px;
+  color: white;
+  margin: 20px 10px;
+  text-align: left;
+//   fab:green;
+//   text-emphasis-color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-family: "Lucida Grande", sans-serif;
+  font-size: 10px;
+//   text-transform: uppercase;
+  &.blu {
+   background-color: #101010;
+  }
+//    transition: background-color 0.25s linear;
+   &:hover {
+    color: #caa9a9;
+   }
+//   }
+  i {
+   width: 20%;
+   text-align: center;
+   font-size: 28px;
+   margin-right: 7px;
+  }
+  .big-txt {
+   font-size: 17px;
+//    text-transform: capitalize;
+  }
+ }
+}

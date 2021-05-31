@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext", "ES2020"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "compileOnSave": true,
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "src/components/sections/Login/contexts/AuthContext.js"
+, "src/components/sections/Tree/Tree.tjs"  ],
+  "exclude": ["node_modules", "dist", "build", "**/*.spec.ts"]
+}

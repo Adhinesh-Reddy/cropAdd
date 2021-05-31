@@ -1,0 +1,109 @@
+{
+  "name": "cropdarpan-web-ui",
+  "version": "0.1.0",
+  "private": true,
+  "license": "NOLICENSE",
+  "author": {
+    "name": "Sathish Nune",
+    "email": "sathish8103@gmail.com"
+  },
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cropdarpan/cropdarpan-web-ui"
+  },
+  "scripts": {
+    "build:dev": "npm run lint && webpack --mode development",
+    "build:prod": "npm run lint && webpack --mode production",
+    "dev": "webpack serve --mode development",
+    "prod": "webpack serve --mode production",
+    "lint": "eslint --ext .ts,.tsx ./src",
+    "lint-fix": "eslint --fix --ext .ts,.tsx ./src",
+    "pretty-quick": "pretty-quick",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@react-pdf/renderer": "^2.0.4",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.6.3",
+    "@types/jest": "^26.0.20",
+    "@types/node": "^12.19.16",
+    "axios": "^0.21.1",
+    "babel-plugin-react-intl": "^8.2.25",
+    "bootstrap": "^4.6.0",
+    "cytoscape": "^3.18.2",
+    "firebase": "^4.8.0",
+    "font-awesome": "^4.7.0",
+    "get-user-locale": "^1.4.0",
+    "react": "^17.0.1",
+    "react-bootstrap": "^1.4.3",
+    "react-component-export-image": "^1.0.5",
+    "react-dom": "^17.0.1",
+    "react-intl": "^5.12.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.1",
+    "react-social-login-buttons": "^3.4.0",
+    "react-speech": "^1.0.2",
+    "react-to-print": "^2.12.4"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "@types/cytoscape": "^3.14.15",
+    "@types/mini-css-extract-plugin": "^1.2.2",
+    "@types/react": "^16.14.3",
+    "@types/react-dom": "^16.9.10",
+    "@types/react-router-dom": "^5.1.7",
+    "@typescript-eslint/eslint-plugin": "^4.14.2",
+    "@zeit/next-sass": "^1.0.1",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-plugin-formatjs": "^9.0.4",
+    "css-loader": "^5.1.3",
+    "eslint": "^7.19.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.3",
+    "eslint-plugin-json": "^2.1.2",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "html-webpack-plugin": "^5.0.0",
+    "husky": "^4.3.8",
+    "mini-css-extract-plugin": "^1.3.9",
+    "node-sass": "^4.14.1",
+    "prettier": "^2.2.1",
+    "prettier-eslint": "^12.0.0",
+    "pretty-quick": "^3.1.0",
+    "sass-loader": "^6.0.7",
+    "source-map-loader": "^2.0.0",
+    "style-loader": "^1.3.0",
+    "typescript": "^4.1.3",
+    "webpack": "^5.21.1",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "pretty-quick --staged"
+    }
+  }
+}

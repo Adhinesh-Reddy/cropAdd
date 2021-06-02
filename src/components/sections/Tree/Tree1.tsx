@@ -11,7 +11,7 @@ function Tree1(props:any) {
     const history = useHistory();
 
     function handleClick() {
-        history.push("/treeEdit");
+        history.push("/treeedit");
     }
    
 
@@ -177,9 +177,10 @@ function Tree1(props:any) {
 
 
     return (
-        <div id="cy" style={{ width: "100%", height: "625px", display: "block", backgroundColor: "black"}}>
+        <>
+        <div id="cy" style={{ width: "100%", height: "625px", display: "block", backgroundColor: "black"}}></div>
             <Button variant = "success" onClick = {handleClick}>Edit</Button>
-        </div>
+        </>
     )
 
 }

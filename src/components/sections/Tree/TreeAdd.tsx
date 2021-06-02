@@ -24,7 +24,7 @@ const TreeAdd = () => {
                 <Form.Control type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)}/>
             </Form.Group>
             <Button variant="sucess" type="submit">Submit</Button>
-        {flag == 1 ? <TreeEdit name = {name} flag = {flag}/> : "loading..."}
+        {/* {flag == 1 ? <TreeEdit name = {name} flag = {flag}/> : "loading..."} */}
         {/* <button onClick = {Change}>Change</button> */}
         </Form>
         </>

@@ -27,6 +27,7 @@ import HomeProblem from './Home/HomeProblem'
 import HomeHeirarchy from './Home/HomeHeirarchy'
 import TreeEdit from './Tree/TreeEdit'
 import TreeAdd from './Tree/TreeAdd'
+import TreeAlert from './Tree/TreeAlert'
 
 // import CottonCropUp from './Crops/Symptoms'
 const sections = () => {
@@ -50,6 +51,7 @@ const sections = () => {
               <Route exact path="/homeheirarchy" component={HomeHeirarchy} />
               <Route exact path="/treeedit" component={TreeEdit} />
               <Route exact path="/treeadd" component={TreeAdd} />
+              <Route exact path="/treealert" component={TreeAlert} />
               <AuthProvider>
                 <Switch>
               <PrivateRoute path="/dashboard" component={Dashboard} />

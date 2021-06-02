@@ -1,24 +1,45 @@
-import React, {useState} from 'react'
+import React, {useState,useRef} from 'react'
 import cytoscape from 'cytoscape'
 import TreeAdd from './TreeAdd'
 import { useHistory } from "react-router-dom";
+import {useAlert} from 'react-alert'
+import TreeAlert from './TreeAlert';
+//@ts-ignore
+import AlertTemplate from 'react-alert-template-basic'
+import { transitions, positions, Provider as AlertProvider } from 'react-alert'
+import {Alert, Form, Button} from 'react-bootstrap'
+
 
 
 var l1_sym = ["Bored Bolls"]
 
 
-const TreeEdit = (props:any) => {
-
-    const[flag,setFlag] = useState(0)
-    // setFlag(props.flag)
-    const history = useHistory();
-
-  function handleClick() {
-    history.push("/treeadd");
-  }
+const TreeEdit = () => {
     
+    const [show, setShow] = useState(false);
+    const [name, setName] = useState("")
+    const [flag, setFlag] = useState(0)
+    const cyRef = useRef();
+
+    function handleSubmit(){
+        setShow(false)
+                cyRef.current.add([
+                    {group: 'nodes', data: {id: "1", label: name}},
+                    {group: 'edges', data: {source: "root", target: '1'}}
+                ])
+        setName("");
+    }
+
+    
+    // const [name, setName] = useState("")
+    // function handleSubmit(){
+    //     setName(name)
+    //     setFlag(1)
+    // }
+        // console.log(name)
 
     const renderCytoscapeElement = () =>{
+
         const cy = cytoscape(
             {
                 container: document.getElementById('cy'),
@@ -83,43 +104,53 @@ const TreeEdit = (props:any) => {
 
             for(let l1 in l1_sym){
                 cy.add([
-                {group: 'nodes', data: {id: "l1"+countId,label: l1_sym[l1]}}, //clicked = false
+                {group: 'nodes', data: {id: "l1"+countId,label: l1_sym[l1]}},
                 {group: 'edges', data: {source: "root", target: "l1"+countId++}}
             ])
-            }  
-            if(props.flag == 1){
-                cy.add([
-                    {group: 'nodes',data: {id: "demo", label: props.name}},
-                    {group: 'edges', data: {source: "root", target: "demo"}}
-                ])
-            }          
+            }
+        
+           
             var layout = cy.layout({ name: 'breadthfirst', roots: ["root"], padding: 30 });
             layout.run();
-
+            
             cy.on('tap','node',function(evt){
                 var node = evt.target._private.data;
                 console.log(node.label)
                 
+                console.log(flag)
                 
             })
-            
+            cyRef.current = cy
         }
 
 
         //http://65.0.8.183/crops/1/symptom/level/1
         //http://65.0.8.183/crops/1/symptom/1/children/102
+        console.log(name)
         
         React.useEffect(() => {            
              renderCytoscapeElement();
         },[])
 
+        
+
     return (
-        <>
+        <div>
+        <Alert show={show} variant="success">
+            <Form.Control type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)}/>
+        <hr />
+        <div className="d-flex justify-content">
+          <Button onClick={handleSubmit} variant="outline-success">
+            Add Node
+          </Button>
+        </div>
+      </Alert>
     <div id="cy" style={{ width: "100%", height: "625px", display: "block", backgroundColor: "black"}}></div>
-        <button type="button" onClick={handleClick}>
-      Add
-    </button>
-    </>
+
+
+
+    {!show && <Button variant = "success" onClick={() => setShow(true)}>Add</Button>}
+    </div>
     )
 }
 

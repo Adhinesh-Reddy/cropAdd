@@ -8,7 +8,6 @@ import Tree1 from './Tree1'
 
 
 function TreeData() {
-    
     const [flag, setFlag] = useState(0)
     const [l1_sym, setl1_sym] = useState([
         {sid: '', name: ''},

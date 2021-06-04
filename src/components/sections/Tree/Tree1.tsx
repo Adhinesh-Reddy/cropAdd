@@ -1,24 +1,153 @@
-import React from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import cytoscape from 'cytoscape'
-import {useEffect} from 'react'
-import {useState} from 'react'
 import client from '../../../backend/client'
-import {Button} from 'react-bootstrap'
 import { useHistory } from "react-router-dom";
+import {Alert, Form, Button} from 'react-bootstrap'
 
 function Tree1(props:any) {
 
     const history = useHistory();
+    const cyRef = useRef();
+    const [show, setShow] = useState(false);
+    const [show1, setShow1] = useState(true);
+    const [disableBtn, setDisableBtn] = useState(true)
+    const [id, setId] = useState("")
+    const [name, setName] = useState("")
+    const [parent,setParent] = useState("")
+    const [flag, setFlag] = useState(0)
 
-    function handleClick() {
-        history.push("/treeedit");
-    }
-   
-
+    
+    
     var l1_sym = props.l1_sym
     var l2_sym = props.l2_sym
     var l3_sym = props.l3_sym
     
+    function handleEdit() {
+        for(let l2 in l2_sym){
+            cyRef.current.remove('#'+l2_sym[l2].sid)
+        }
+        for(let l3 in l3_sym){
+            cyRef.current.remove('#'+l3_sym[l3].sid)
+        }
+
+        for(let l2 in l2_sym){
+            cyRef.current.add([
+                {group: "nodes", data: {id: l2_sym[l2].sid, label: l2_sym[l2].name}},
+                {group: "edges", data: {source: l2_sym[l2].parentId, target: l2_sym[l2].sid}}
+            ])
+        }
+
+        for(let l3 in l3_sym){
+            cyRef.current.add([
+                {group: "nodes", data: {id: l3_sym[l3].sid, label: l3_sym[l3].name}},
+                {group: "edges", data: {source: l3_sym[l3].parentId, target: l3_sym[l3].sid}}
+            ])
+        }        
+
+        cyRef.current.on('tap','node', function(evt){
+            var node = evt.target._private.data;
+            setDisableBtn(false)
+            setParent(node.id)
+        })
+        var layout = cyRef.current.layout({ name: 'breadthfirst', roots: ["root"] });
+        layout.run();
+
+        setShow(true);
+        setShow1(false);
+        setFlag(1);
+    }
+    
+    function handleAdd() {
+        setShow1(false)
+        
+
+        cyRef.current.add([
+            {group: 'nodes', data: {id: id, label: name}},
+            {group: 'edges', data: {source: parent, target: id}}
+        ])
+        var layout = cyRef.current.layout({ name: 'breadthfirst', roots: ["root"] });
+        layout.run();
+        setId("")
+        setName("")
+        setDisableBtn(true)
+    }
+
+    function handleTreeMode(){
+        for(let l2 in l2_sym){
+            cyRef.current.remove('#'+l2_sym[l2].sid)
+        }
+        for(let l3 in l3_sym){
+            cyRef.current.remove('#'+l3_sym[l3].sid)
+        }
+        var layout = cyRef.current.layout({ name: 'breadthfirst', roots: ["root"] });
+        layout.run();
+        cyRef.current.on('tap', 'node', function(evt){
+                 var node = evt.target._private.data;
+                //  console.log(node.label)
+
+                
+
+                 if(node.clicked == false){
+                    //adding elements
+                    //level2
+                 for(let l1 in l1_sym){
+                     if(node.label == l1_sym[l1].name){
+                     for(let l2 in l2_sym){
+                         if(l2_sym[l2].parentId == node.id){
+                cyRef.current.add([
+                    {group: "nodes", data: {id: l2_sym[l2].sid, label: l2_sym[l2].name, clicked: false}},
+                    {group: "edges", data: {source: node.id, target: l2_sym[l2].sid}},
+                ])
+            }
+            }
+                cyRef.current.$('#'+node.id).data('clicked',true);
+
+            }
+                }
+                //level2
+                //level3
+                for(let l2 in l2_sym){
+                    if(node.label == l2_sym[l2].name){
+                        for(let l3 in l3_sym){
+                            if(l3_sym[l3].parentId == node.id){
+                            cyRef.current.add([
+                                {group: "nodes", data: {id: l3_sym[l3].sid, label: l3_sym[l3].name, clicked: false}},
+                                {group: "edges", data: {source: node.id, target: l3_sym[l3].sid}},
+                            ])
+                            }
+                        }
+                        cyRef.current.$('#'+node.id).data('clicked',true);
+                    }
+                }
+                //level3
+                }
+                else{
+                    //removing elements
+                    //removing level2
+                    for(let l2 in l2_sym){
+                        if(l2_sym[l2].parentId == node.id){
+                        cyRef.current.remove('#'+l2_sym[l2].sid)
+                        
+                        }
+                    }
+                    //removing level3
+                    for(let l3 in l3_sym){
+                        if(l3_sym[l3].parentId == node.id){
+                            cyRef.current.remove('#'+l3_sym[l3].sid)
+                        }
+                    }
+
+                    cyRef.current.$('#'+node.id).data('clicked',false);
+                }
+
+                 
+                 var layout = cyRef.current.layout({ name: 'breadthfirst', roots: ["root"] });
+                 layout.run();
+               
+            })
+        setShow(false);
+        setShow1(true);
+    }
 
         const renderCytoscapeElement = () =>{
         const cy = cytoscape(
@@ -100,6 +229,8 @@ function Tree1(props:any) {
                  var node = evt.target._private.data;
                 //  console.log(node.label)
 
+                
+
                  if(node.clicked == false){
                     //adding elements
                     //level2
@@ -156,10 +287,11 @@ function Tree1(props:any) {
                  
                  var layout = cy.layout({ name: 'breadthfirst', roots: ["root"] });
                  layout.run();
+               
             })
             
 
-            
+            cyRef.current = cy            
         }
 
 
@@ -178,8 +310,20 @@ function Tree1(props:any) {
 
     return (
         <>
+        <Alert show={show1 && show} variant="success">
+            <Form.Control type="text" placeholder="ID" value={id} onChange={(e) => setId(e.target.value)}/>
+            <Form.Control type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)}/>
+        <hr />
+        <div className="d-flex justify-content">
+          <Button onClick={handleAdd} variant="outline-success">
+            Add Node
+          </Button>
+        </div>
+      </Alert>
         <div id="cy" style={{ width: "100%", height: "625px", display: "block", backgroundColor: "black"}}></div>
-            <Button variant = "success" onClick = {handleClick}>Edit</Button>
+            {!show && <Button variant = "success" onClick = {handleEdit}>Edit</Button>}
+            {!show1 && <Button variant = "success" onClick={() => setShow1(true)} disabled = {disableBtn}>Add</Button>}
+            {!show1 && <Button variant = "success" onClick={handleTreeMode}>Tree Mode</Button>}
         </>
     )
 

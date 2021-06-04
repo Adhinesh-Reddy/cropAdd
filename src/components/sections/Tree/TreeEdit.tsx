@@ -8,6 +8,7 @@ import TreeAlert from './TreeAlert';
 import AlertTemplate from 'react-alert-template-basic'
 import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import {Alert, Form, Button} from 'react-bootstrap'
+import TreeData from './TreeData'
 
 
 
@@ -17,17 +18,29 @@ var l1_sym = ["Bored Bolls"]
 const TreeEdit = () => {
     
     const [show, setShow] = useState(false);
+    const [id, setId] = useState("")
     const [name, setName] = useState("")
     const [flag, setFlag] = useState(0)
+    const [disableBtn, setDisableBtn] = useState(true)
+    const [parent,setParent] = useState("")
     const cyRef = useRef();
+
+    const history = useHistory();
 
     function handleSubmit(){
         setShow(false)
                 cyRef.current.add([
-                    {group: 'nodes', data: {id: "1", label: name}},
-                    {group: 'edges', data: {source: "root", target: '1'}}
+                    {group: 'nodes', data: {id: id, label: name}},
+                    {group: 'edges', data: {source: parent, target: id}}
                 ])
-        setName("");
+        setId("")
+        setName("")
+        setDisableBtn(true)
+    }
+
+    function handleClick(){
+        setFlag(1)
+        history.push("/tree")
     }
 
     
@@ -116,8 +129,8 @@ const TreeEdit = () => {
             cy.on('tap','node',function(evt){
                 var node = evt.target._private.data;
                 console.log(node.label)
-                
-                console.log(flag)
+                setDisableBtn(false)
+                setParent(node.id)
                 
             })
             cyRef.current = cy
@@ -126,7 +139,7 @@ const TreeEdit = () => {
 
         //http://65.0.8.183/crops/1/symptom/level/1
         //http://65.0.8.183/crops/1/symptom/1/children/102
-        console.log(name)
+        // console.log(name)
         
         React.useEffect(() => {            
              renderCytoscapeElement();
@@ -137,6 +150,7 @@ const TreeEdit = () => {
     return (
         <div>
         <Alert show={show} variant="success">
+            <Form.Control type="text" placeholder="ID" value={id} onChange={(e) => setId(e.target.value)}/>
             <Form.Control type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)}/>
         <hr />
         <div className="d-flex justify-content">
@@ -149,7 +163,10 @@ const TreeEdit = () => {
 
 
 
-    {!show && <Button variant = "success" onClick={() => setShow(true)}>Add</Button>}
+    {!show && <Button variant = "success" onClick={() => setShow(true)} disabled = {disableBtn}>Add</Button>}
+
+    <Button variant = "success" onClick={handleClick}>Tree Mode</Button>
+    {flag == 1 ? <TreeData /> : ""}
     </div>
     )
 }

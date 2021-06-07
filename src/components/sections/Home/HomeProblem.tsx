@@ -1,6 +1,8 @@
-import React from 'react'
-import {Card, Nav, ListGroup} from 'react-bootstrap';
-import {NavLink} from 'react-router-dom'
+import React,{useState} from 'react';
+import { FormattedMessage } from 'react-intl';
+import {Card, Nav, ListGroup, Button, Dropdown} from 'react-bootstrap';
+import { Container, Row, Col } from 'reactstrap';
+import {NavLink} from 'react-router-dom';
 
 const HomeProblem = () => {
 
@@ -8,9 +10,13 @@ const HomeProblem = () => {
   const wheat = "../../../../assets/images/wheat.png"
   const sugarcane = "../../../../assets/images/sugarcane.png"
   const sunflower = "../../../../assets/images/sunflower.png"
+  const [backGroundColorView,setBackGroundColorView]=useState('white');
+  const [textColorView,setTextColorView]=useState('black');
+  const [backGroundColorAdd,setBackGroundColorAdd]=useState('white');
+  const [textColorAdd,setTextColorAdd]=useState('black');
     return (
       <div>
-        <Card border = "dark" style= {{position: "absolute", width: "70%",height:"111px",left:"15%",top:"131px",margin: "0px" }}>
+      <Card border = "dark" style= {{position: "absolute", width: "70%",left:"15%",top:"131px",margin: "0px" }}>
       <Card.Header>
         <Nav className="justify-content-center" fill variant = "tabs" defaultActiveKey="/homeproblem">
           <Nav.Item>
@@ -24,6 +30,89 @@ const HomeProblem = () => {
           </Nav.Item>
         </Nav>
       </Card.Header>
+      <div>
+      <br/>
+        <Dropdown className='mx-2' style={{float:'right'}}>
+            <Dropdown.Toggle style={{backgroundColor:"#D5DCED",borderColor:"#D5DCED",borderStyle:"solid",borderRadius:"10",width:"328px",color:"black",fontSize:"20px"}}>
+            <FormattedMessage id='ExpertView.Text11' />
+            </Dropdown.Toggle>
+        </Dropdown>
+      </div>
+      <br/><br/>
+      <div>
+        <br/>
+        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+        <Button onClick={()=>{setBackGroundColorView("#4FB872");setTextColorView('white')}} style={{backgroundColor:backGroundColorView,borderColor:"black",borderStyle:"solid",borderRadius:"15px",width:"125px",color:textColorView,fontSize:"25px"}}><FormattedMessage id="View"/></Button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+        <Button onClick={()=>{setBackGroundColorAdd("#4FB872");setTextColorAdd('white')}} style={{backgroundColor:backGroundColorAdd,borderColor:"black",borderStyle:"solid",borderRadius:"15px",width:"125px",color:textColorAdd,fontSize:"25px"}}><FormattedMessage id="Add"/></Button>
+        <i className="fa fa-trash-o" style={{fontSize:"36px",color:"#696969",float:'right',paddingRight:"48px"}}></i>
+        <i className="fa fa-edit" style={{fontSize:"36px",color:"#696969",float:'right',paddingRight:"50px"}}></i>
+        <br/>
+      </div>
+      <hr style={{ color: '#C4C4C4', backgroundColor: '#C4C4C4',height:"1px"}} />
+      <Container>
+        <Row>
+          <Col style={{color:"#4FB872"}}><FormattedMessage id='ExpertView.Text1' /></Col>
+          <Col style={{color:"#000000"}}>Spotted Boll Worm</Col>
+          <Col style={{color:"#4FB872"}}><FormattedMessage id='ExpertView.Text2' /></Col>
+          <Col style={{color:"#000000"}}>Spray Chlorantranilipr ole @ 0.3 ml or Flubendiamide @ 0.25 ml or Indoxacarb 14.5%SC @1.0 ml or Quinolphos @ 2.0 ml or Chlorpyriphos 
+@ 2.5 ml Thiodicarb @ 1.5 g by mixing in 1 litre of water.</Col>
+        </Row>
+        <Row>
+          <Col style={{color:"#4FB872"}}><FormattedMessage id='ExpertView.Text3' /></Col>
+          <Col style={{color:"#000000"}}>Spotted Boll Worm</Col>
+          <Col style={{color:"#4FB872"}}><FormattedMessage id='ExpertView.Text4' /></Col>
+          <Col style={{color:"#000000"}}>{''}</Col>
+        </Row>
+        <Row>
+          <Col style={{color:"#4FB872"}}><FormattedMessage id='ExpertView.Text5' /></Col>
+          <Col style={{color:"#000000"}}>Spotted Boll Worm</Col>
+          <Col style={{color:"#000000"}}>{''}</Col>
+          <Col style={{color:"#000000"}}>{''}</Col>
+        </Row>
+        <br/>
+      </Container>
+      <hr style={{ color: '#827A7A', backgroundColor: '#827A7A',height:"2px"}} />
+      <div>
+        <p style={{color:"#696969",fontSize:"25px",paddingLeft:"70px"}}><FormattedMessage id='ExpertView.Text6'/><i className="fas fa-angle-down" style={{fontSize:"30px",color:"#C4C4C4",float:'right',paddingRight:"30px"}}></i></p>
+        <br/>
+        <Container>
+          <Row>
+            <Col style={{color:"#000000",fontSize:"22px",paddingLeft:"170px"}}><b><FormattedMessage id='ExpertView.Text7'/></b></Col>
+            <Col style={{color:"#000000",fontSize:"22px"}}><b><FormattedMessage id='ExpertView.Text8'/></b></Col>
+            <Col style={{color:"#000000",fontSize:"22px"}}><b><FormattedMessage id='ExpertView.Text9'/></b></Col>
+            <Col style={{color:"#000000",fontSize:"22px"}}><b><FormattedMessage id='ExpertView.Text10'/></b></Col>
+          </Row>
+          <hr style={{ color: '#827A7A', backgroundColor: '#827A7A',height:"1px"}} />
+          <Row>
+            <Col style={{color:"#000000",fontSize:"20px",paddingLeft:"170px"}}>Bored bolls</Col>
+            <Col style={{color:"#000000",fontSize:"20px"}}>L2</Col>
+            <Col style={{color:"#000000",fontSize:"20px"}}>Bolls damage</Col>
+            <Col style={{color:"#000000",fontSize:"20px"}}>Do bolls have holes?</Col>
+          </Row>
+          <hr style={{ color: '#827A7A', backgroundColor: '#827A7A',height:"1px",width:"97%"}} />
+          <Row>
+            <Col style={{color:"#000000",fontSize:"20px",paddingLeft:"170px"}}>Premature shedding of bolls
+</Col>
+            <Col style={{color:"#000000",fontSize:"20px"}}>L2</Col>
+            <Col style={{color:"#000000",fontSize:"20px"}}>Bolls damage</Col>
+            <Col style={{color:"#000000",fontSize:"20px"}}>Do you find any premature shedding of bolls?
+</Col>
+          </Row>
+          <hr style={{ color: '#827A7A', backgroundColor: '#827A7A',height:"1px",width:"97%"}} />
+          <Row>
+            <Col style={{color:"#000000",fontSize:"20px",paddingLeft:"170px"}}>Premature opening of bolls
+</Col>
+            <Col style={{color:"#000000",fontSize:"20px"}}>L2</Col>
+            <Col style={{color:"#000000",fontSize:"20px"}}>Bolls damage</Col>
+            <Col style={{color:"#000000",fontSize:"20px"}}>Do you detect any damaged bolls with premature opening?
+</Col>
+          </Row>
+        </Container>      
+      </div>
+      <br/>
+      <hr style={{ color: '#827A7A', backgroundColor: '#827A7A',height:"2px"}} />
+    <br/>
     </Card>
     <Card style={{position: "absolute",width: "7%",top:"198px",padding:"10px"}}>
       <ListGroup variant="flush">

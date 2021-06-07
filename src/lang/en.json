@@ -42,5 +42,18 @@
   "Download.Text1":"Get it on",
   "Download.Text2":"Available on",
   "Download.Option1":"Google Play",
-  "Download.Option2":"App Store"
+  "Download.Option2":"App Store",
+  "ExpertView.Text1":"Problem Common Name",
+  "ExpertView.Text2":"Chemical Advice",
+  "ExpertView.Text3":"Problem Scientific Name",
+  "ExpertView.Text4":"Organic Advice",
+  "ExpertView.Text5":"Problem Description",
+  "ExpertView.Text6":"Symptoms",
+  "ExpertView.Text7":"Name",
+  "ExpertView.Text8":"Symptom Level",
+  "ExpertView.Text9":"L1 Symptom Name",
+  "ExpertView.Text10":"Question in English",
+  "ExpertView.Text11":"Search Problems",
+  "View":"View",
+  "Add":"Add"
 }

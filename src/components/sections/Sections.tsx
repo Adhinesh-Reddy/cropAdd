@@ -21,9 +21,11 @@ import ForgotPassword from './Login/components/ForgotPassword';
 // import Solution from './Crops/Solution'
 // import {Sol} from './Crops/Sol'
 
-// import Tree1 from './Tree/Tree1'
+import Tree1 from './Tree/Tree1'
 import TreeData from './Tree/TreeData'
 import HomeProblem from './Home/HomeProblem'
+import HomeProblemAdd from './Home/HomeProblemAdd'
+import HomeProblemEdit from './Home/HomeProblemEdit'
 import HomeHeirarchy from './Home/HomeHeirarchy'
 import TreeEdit from './Tree/TreeEdit'
 import TreeAdd from './Tree/TreeAdd'
@@ -41,13 +43,15 @@ const sections = () => {
 	      <Route exact path="/solution" component={Solution}/> */}
         {/* <Route exact path="/sol" component={Sol}/> */}
 
-	      <Route exact path="/" component={Main}/>
+	            <Route exact path="/" component={Main}/>
               <Route exact path="/about" component={About} />
               <Route exact path="/review" component={Review} />
               <Route exact path="/gallery" component={Gallery} />
               <Route exact path="/download" component={Download} />
               <Route exact path="/tree" component={TreeData} />
               <Route exact path="/homeproblem" component={HomeProblem} />
+              <Route exact path="/homeproblemadd" component={HomeProblemAdd} />
+              <Route exact path="/homeproblemedit" component={HomeProblemEdit} />
               <Route exact path="/homeheirarchy" component={HomeHeirarchy} />
               <Route exact path="/treeedit" component={TreeEdit} />
               <Route exact path="/treeadd" component={TreeAdd} />
@@ -55,7 +59,7 @@ const sections = () => {
               <AuthProvider>
                 <Switch>
               <PrivateRoute path="/dashboard" component={Dashboard} />
-	      <PrivateRoute path="/dashboardPhone" component={DashboardPhone} />
+	            <PrivateRoute path="/dashboardPhone" component={DashboardPhone} />
               <PrivateRoute path="/update-profile" component={UpdateProfile} />
               <Route path="/signup" component={Signup} />
               <Route path="/loginViaEmail" component={LoginViaEmail} />

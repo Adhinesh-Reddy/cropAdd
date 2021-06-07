@@ -3,18 +3,14 @@ import { FormattedMessage } from 'react-intl';
 import {Card, Nav, ListGroup, Button, Dropdown} from 'react-bootstrap';
 import { Container, Row, Col } from 'reactstrap';
 // import {NavLink} from 'react-router-dom';
-import { Link} from 'react-router-dom'
 
-const HomeProblem = () => {
-
+const HomeProblemEdit = () => {
   const cotton = "../../../../assets/images/cotton.png"
   const wheat = "../../../../assets/images/wheat.png"
   const sugarcane = "../../../../assets/images/sugarcane.png"
   const sunflower = "../../../../assets/images/sunflower.png"
-  const [backGroundColorView,setBackGroundColorView]=useState('white');
-  const [textColorView,setTextColorView]=useState('black');
-  const [backGroundColorAdd,setBackGroundColorAdd]=useState('white');
-  const [textColorAdd,setTextColorAdd]=useState('black');
+  const [backGroundColorEdit,setBackGroundColorEdit]=useState('white');
+  const [textColorEdit,setTextColorEdit]=useState('black');
     return (
       <div>
       <Card border = "dark" style= {{position: "absolute", width: "88%",left:"10%",top:"131px",margin: "0px" }}>
@@ -33,7 +29,7 @@ const HomeProblem = () => {
       </Card.Header>
       <div>
       <br/>
-        <Dropdown className='mx-2' style={{float:'right'}}>
+        <Dropdown className='mx-2' style={{float:'right',paddingRight:"48px"}}>
             <Dropdown.Toggle style={{backgroundColor:"#D5DCED",borderColor:"#D5DCED",borderStyle:"solid",borderRadius:"10",width:"328px",color:"black",fontSize:"20px"}}>
             <FormattedMessage id='ExpertView.Text11' />
             </Dropdown.Toggle>
@@ -43,11 +39,8 @@ const HomeProblem = () => {
       <div>
         <br/>
         &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-        <Button onClick={()=>{setBackGroundColorView("#4FB872");setTextColorView('white')}} style={{backgroundColor:backGroundColorView,borderColor:"black",borderStyle:"solid",borderRadius:"15px",width:"125px",color:textColorView,fontSize:"25px"}} href="/homeproblem"><FormattedMessage id="View"/></Button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-        <Button onClick={()=>{setBackGroundColorAdd("#4FB872");setTextColorAdd('white')}} style={{backgroundColor:backGroundColorAdd,borderColor:"black",borderStyle:"solid",borderRadius:"15px",width:"125px",color:textColorAdd,fontSize:"25px"}} href="/homeproblemadd"><FormattedMessage id="Add"/></Button>
+        <Button onClick={()=>{setBackGroundColorEdit("#4FB872");setTextColorEdit('white')}} style={{backgroundColor:backGroundColorEdit,borderColor:"black",borderStyle:"solid",borderRadius:"15px",width:"125px",color:textColorEdit,fontSize:"25px"}}><FormattedMessage id="Edit"/></Button>
         <i className="fa fa-trash-o" style={{fontSize:"36px",color:"#696969",float:'right',paddingRight:"48px"}}></i>
-        <Link to="/homeproblemedit"><i className="fa fa-edit" style={{fontSize:"36px",color:"#696969",float:'right',paddingRight:"50px"}}></i></Link>
         <br/>
       </div>
       <hr style={{ color: '#C4C4C4', backgroundColor: '#C4C4C4',height:"1px"}} />
@@ -77,35 +70,35 @@ const HomeProblem = () => {
       </Container>
       <hr style={{ color: '#827A7A', backgroundColor: '#827A7A',height:"2px"}} />
       <div>
-        <p style={{color:"#696969",fontSize:"25px",paddingLeft:"70px"}}><FormattedMessage id='ExpertView.Text6'/><i className="fas fa-angle-down" style={{fontSize:"30px",color:"#C4C4C4",float:'right',paddingRight:"30px"}}></i></p>
+        <p style={{color:"#696969",fontSize:"25px",paddingLeft:"70px"}}><FormattedMessage id='ExpertEdit.Text1'/></p>
         <br/>
         <Container style={{marginLeft: 'auto', marginRight: 'auto', textAlign:'center'}}> {/*changed*/}
           <Row>
             <Col style={{color:"#000000",fontSize:"22px"}}><b><FormattedMessage id='ExpertView.Text7'/></b></Col> {/*change paddingLeft: 170px*/}
-            <Col style={{color:"#000000",fontSize:"22px"}}><b><FormattedMessage id='ExpertView.Text8'/></b></Col>
             <Col style={{color:"#000000",fontSize:"22px"}}><b><FormattedMessage id='ExpertView.Text9'/></b></Col>
             <Col style={{color:"#000000",fontSize:"22px"}}><b><FormattedMessage id='ExpertView.Text10'/></b></Col>
+            <Col>{''}</Col>
           </Row>
           <hr style={{ color: '#827A7A', backgroundColor: '#827A7A',height:"1px"}} />
           <Row>
             <Col style={{color:"#000000",fontSize:"20px"}}>Bored bolls</Col>{/*change paddingLeft: 170px*/}
-            <Col style={{color:"#000000",fontSize:"20px"}}>L2</Col>
             <Col style={{color:"#000000",fontSize:"20px"}}>Bolls damage</Col>
             <Col style={{color:"#000000",fontSize:"20px"}}>Do bolls have holes?</Col>
+            <Col><i className="fa fa-trash-o" style={{fontSize:"36px",color:"#696969",float:'right',paddingLeft:"20px"}}></i></Col>
           </Row>
           <hr style={{ color: '#827A7A', backgroundColor: '#827A7A',height:"1px",width:"97%"}} />
           <Row>
             <Col style={{color:"#000000",fontSize:"20px"}}>Premature shedding of bolls</Col>{/*change paddingLeft: 170px*/}
-            <Col style={{color:"#000000",fontSize:"20px"}}>L2</Col>
             <Col style={{color:"#000000",fontSize:"20px"}}>Bolls damage</Col>
             <Col style={{color:"#000000",fontSize:"20px"}}>Do you find any premature shedding of bolls?</Col>
+            <Col><i className="fa fa-trash-o" style={{fontSize:"36px",color:"#696969",float:'right',paddingLeft:"20px"}}></i></Col>
           </Row>
           <hr style={{ color: '#827A7A', backgroundColor: '#827A7A',height:"1px",width:"97%"}} />
           <Row>
             <Col style={{color:"#000000",fontSize:"20px"}}>Premature opening of bolls</Col>{/*change paddingLeft: 170px*/}
-            <Col style={{color:"#000000",fontSize:"20px"}}>L2</Col>
             <Col style={{color:"#000000",fontSize:"20px"}}>Bolls damage</Col>
             <Col style={{color:"#000000",fontSize:"20px"}}>Do you detect any damaged bolls with premature opening?</Col>
+            <Col><i className="fa fa-trash-o" style={{fontSize:"36px",color:"#696969",float:'right',paddingLeft:"20px"}}></i></Col>
           </Row>
         </Container>      
       </div>
@@ -149,4 +142,5 @@ const HomeProblem = () => {
     )
 }
 
-export default HomeProblem
+export default HomeProblemEdit
+

@@ -5,7 +5,7 @@ import { Container, Row, Col } from 'reactstrap';
 // import {NavLink} from 'react-router-dom';
 import { Link} from 'react-router-dom'
 
-const HomeProblem = () => {
+const HomeProblemAdd = () => {
 
   const cotton = "../../../../assets/images/cotton.png"
   const wheat = "../../../../assets/images/wheat.png"
@@ -33,7 +33,7 @@ const HomeProblem = () => {
       </Card.Header>
       <div>
       <br/>
-        <Dropdown className='mx-2' style={{float:'right'}}>
+        <Dropdown className='mx-2' style={{float:'right',paddingRight:"48px"}}>
             <Dropdown.Toggle style={{backgroundColor:"#D5DCED",borderColor:"#D5DCED",borderStyle:"solid",borderRadius:"10",width:"328px",color:"black",fontSize:"20px"}}>
             <FormattedMessage id='ExpertView.Text11' />
             </Dropdown.Toggle>
@@ -45,7 +45,7 @@ const HomeProblem = () => {
         &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
         <Button onClick={()=>{setBackGroundColorView("#4FB872");setTextColorView('white')}} style={{backgroundColor:backGroundColorView,borderColor:"black",borderStyle:"solid",borderRadius:"15px",width:"125px",color:textColorView,fontSize:"25px"}} href="/homeproblem"><FormattedMessage id="View"/></Button>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-        <Button onClick={()=>{setBackGroundColorAdd("#4FB872");setTextColorAdd('white')}} style={{backgroundColor:backGroundColorAdd,borderColor:"black",borderStyle:"solid",borderRadius:"15px",width:"125px",color:textColorAdd,fontSize:"25px"}} href="/homeproblemadd"><FormattedMessage id="Add"/></Button>
+        <Button onClick={()=>{setBackGroundColorAdd("#4FB872");setTextColorAdd('white')}} style={{backgroundColor:backGroundColorAdd,borderColor:"black",borderStyle:"solid",borderRadius:"15px",width:"125px",color:textColorAdd,fontSize:"25px"}}><FormattedMessage id="Add"/></Button>
         <i className="fa fa-trash-o" style={{fontSize:"36px",color:"#696969",float:'right',paddingRight:"48px"}}></i>
         <Link to="/homeproblemedit"><i className="fa fa-edit" style={{fontSize:"36px",color:"#696969",float:'right',paddingRight:"50px"}}></i></Link>
         <br/>
@@ -54,22 +54,21 @@ const HomeProblem = () => {
       <Container>
         <Row>
           <Col style={{color:"#4FB872"}}><FormattedMessage id='ExpertView.Text1' /></Col>
-          <Col style={{color:"#000000"}}>Spotted Boll Worm</Col>
+          <Col style={{color:"#000000"}}>{''}</Col>
           <Col style={{color:"#4FB872"}}><FormattedMessage id='ExpertView.Text2' /></Col>
-          <Col style={{color:"#000000"}}>Spray Chlorantranilipr ole @ 0.3 ml or Flubendiamide @ 0.25 ml or Indoxacarb 14.5%SC @1.0 ml or Quinolphos @ 2.0 ml or Chlorpyriphos 
-@ 2.5 ml Thiodicarb @ 1.5 g by mixing in 1 litre of water.</Col>
+          <Col style={{color:"#000000"}}>{''}</Col>
         </Row>
         <br/>
         <Row>
           <Col style={{color:"#4FB872"}}><FormattedMessage id='ExpertView.Text3' /></Col>
-          <Col style={{color:"#000000"}}>Spotted Boll Worm</Col>
+          <Col style={{color:"#000000"}}>{''}</Col>
           <Col style={{color:"#4FB872"}}><FormattedMessage id='ExpertView.Text4' /></Col>
           <Col style={{color:"#000000"}}>{''}</Col>
         </Row>
         <br/>
         <Row>
           <Col style={{color:"#4FB872"}}><FormattedMessage id='ExpertView.Text5' /></Col>
-          <Col style={{color:"#000000"}}>Spotted Boll Worm</Col>
+          <Col style={{color:"#000000"}}>{''}</Col>
           <Col style={{color:"#000000"}}>{''}</Col>
           <Col style={{color:"#000000"}}>{''}</Col>
         </Row>
@@ -77,41 +76,36 @@ const HomeProblem = () => {
       </Container>
       <hr style={{ color: '#827A7A', backgroundColor: '#827A7A',height:"2px"}} />
       <div>
-        <p style={{color:"#696969",fontSize:"25px",paddingLeft:"70px"}}><FormattedMessage id='ExpertView.Text6'/><i className="fas fa-angle-down" style={{fontSize:"30px",color:"#C4C4C4",float:'right',paddingRight:"30px"}}></i></p>
+        <p style={{color:"#696969",fontSize:"25px",paddingLeft:"70px"}}><FormattedMessage id='ExpertEdit.Text1'/></p>
         <br/>
-        <Container style={{marginLeft: 'auto', marginRight: 'auto', textAlign:'center'}}> {/*changed*/}
+        <Container>
           <Row>
-            <Col style={{color:"#000000",fontSize:"22px"}}><b><FormattedMessage id='ExpertView.Text7'/></b></Col> {/*change paddingLeft: 170px*/}
-            <Col style={{color:"#000000",fontSize:"22px"}}><b><FormattedMessage id='ExpertView.Text8'/></b></Col>
-            <Col style={{color:"#000000",fontSize:"22px"}}><b><FormattedMessage id='ExpertView.Text9'/></b></Col>
-            <Col style={{color:"#000000",fontSize:"22px"}}><b><FormattedMessage id='ExpertView.Text10'/></b></Col>
+            <Col style={{color:"#4FB872"}}><FormattedMessage id='ExpertAdd.Text1'/></Col> {/*change paddingLeft: 170px*/}
+            <Col style={{color:"#000000"}}>{''}</Col>
+            <Col style={{color:"#4FB872"}}><FormattedMessage id='ExpertAdd.Text2'/></Col>
+            <Col style={{color:"#000000"}}>{''}</Col>
           </Row>
-          <hr style={{ color: '#827A7A', backgroundColor: '#827A7A',height:"1px"}} />
+          <br/>
+          <Row>  
+            <Col style={{color:"#4FB872"}}><FormattedMessage id='ExpertAdd.Text3'/></Col>
+            <Col style={{color:"#000000"}}>{''}</Col>
+            <Col style={{color:"#4FB872"}}><FormattedMessage id='ExpertAdd.Text4'/></Col>
+            <Col style={{color:"#000000"}}>{''}</Col>
+          </Row>
+          <br/>
           <Row>
-            <Col style={{color:"#000000",fontSize:"20px"}}>Bored bolls</Col>{/*change paddingLeft: 170px*/}
-            <Col style={{color:"#000000",fontSize:"20px"}}>L2</Col>
-            <Col style={{color:"#000000",fontSize:"20px"}}>Bolls damage</Col>
-            <Col style={{color:"#000000",fontSize:"20px"}}>Do bolls have holes?</Col>
+            <Col style={{color:"#4FB872"}}><FormattedMessage id='ExpertAdd.Text5'/></Col>
+            <Col style={{color:"#000000"}}>{''}</Col>
+            <Col style={{color:"#000000"}}>{''}</Col>
+            <Col style={{color:"#000000"}}>{''}</Col>
           </Row>
-          <hr style={{ color: '#827A7A', backgroundColor: '#827A7A',height:"1px",width:"97%"}} />
-          <Row>
-            <Col style={{color:"#000000",fontSize:"20px"}}>Premature shedding of bolls</Col>{/*change paddingLeft: 170px*/}
-            <Col style={{color:"#000000",fontSize:"20px"}}>L2</Col>
-            <Col style={{color:"#000000",fontSize:"20px"}}>Bolls damage</Col>
-            <Col style={{color:"#000000",fontSize:"20px"}}>Do you find any premature shedding of bolls?</Col>
-          </Row>
-          <hr style={{ color: '#827A7A', backgroundColor: '#827A7A',height:"1px",width:"97%"}} />
-          <Row>
-            <Col style={{color:"#000000",fontSize:"20px"}}>Premature opening of bolls</Col>{/*change paddingLeft: 170px*/}
-            <Col style={{color:"#000000",fontSize:"20px"}}>L2</Col>
-            <Col style={{color:"#000000",fontSize:"20px"}}>Bolls damage</Col>
-            <Col style={{color:"#000000",fontSize:"20px"}}>Do you detect any damaged bolls with premature opening?</Col>
-          </Row>
-        </Container>      
+          <br/>
+        </Container> 
+        {/* <Link to="/homeproblemadd" style={{float:'right',paddingRight:"30px"}}><i className="fas fa-plus" style={{fontSize:"14px",color:"#696969",float:'right',paddingRight:"30px"}}>&nbsp;&nbsp;<FormattedMessage id="Add"/></i></Link>      */}
+        <i className="fas fa-plus" style={{fontSize:"14px",color:"#696969",float:'right',paddingRight:"48px"}}>&nbsp;&nbsp;<FormattedMessage id="Add"/></i>
+        <br/><br/>
       </div>
       <br/>
-      <hr style={{ color: '#827A7A', backgroundColor: '#827A7A',height:"2px"}} />
-    <br/>
     </Card>
     <Card style={{position: "absolute",width: "7%",top:"198px",padding:"10px"}}>
       <ListGroup variant="flush">
@@ -149,4 +143,5 @@ const HomeProblem = () => {
     )
 }
 
-export default HomeProblem
+export default HomeProblemAdd
+

@@ -1,13 +1,12 @@
-import React, { useContext } from "react";
+// import React, { useContext } from "react";
 import {Card, Nav, ListGroup} from 'react-bootstrap';
-import {NavLink} from 'react-router-dom'
+// import {NavLink} from 'react-router-dom'
 
 // import "./card-style.css";
 import "./home.scss";
 // import Card from "./Cards";
-import client from "../../../backend/client";
-import { ctxt } from './../../../utils/AppContext';
-
+// import client from "../../../backend/client";
+// import { ctxt } from './../../../utils/AppContext';
 
 const cotton = "../../../../assets/images/cotton.png"
 const wheat = "../../../../assets/images/wheat.png"
@@ -15,7 +14,6 @@ const sugarcane = "../../../../assets/images/sugarcane.png"
 const sunflower = "../../../../assets/images/sunflower.png"
 
 function Home() {
-
   
   return (
     <div>

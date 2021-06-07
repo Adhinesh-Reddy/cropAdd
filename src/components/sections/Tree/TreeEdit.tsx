@@ -1,19 +1,16 @@
 import React, {useState,useRef} from 'react'
 import cytoscape from 'cytoscape'
-import TreeAdd from './TreeAdd'
+// import TreeAdd from './TreeAdd'
 import { useHistory } from "react-router-dom";
-import {useAlert} from 'react-alert'
-import TreeAlert from './TreeAlert';
+// import {useAlert} from 'react-alert'
+// import TreeAlert from './TreeAlert';
 //@ts-ignore
-import AlertTemplate from 'react-alert-template-basic'
-import { transitions, positions, Provider as AlertProvider } from 'react-alert'
+// import AlertTemplate from 'react-alert-template-basic'
+// import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import {Alert, Form, Button} from 'react-bootstrap'
 import TreeData from './TreeData'
 
-
-
-var l1_sym = ["Bored Bolls"]
-
+const l1_sym = ["Bored Bolls"]
 
 const TreeEdit = () => {
     
@@ -23,7 +20,7 @@ const TreeEdit = () => {
     const [flag, setFlag] = useState(0)
     const [disableBtn, setDisableBtn] = useState(true)
     const [parent,setParent] = useState("")
-    const cyRef = useRef();
+    const cyRef = useRef<typeof cy>(null);
 
     const history = useHistory();
 
@@ -42,7 +39,6 @@ const TreeEdit = () => {
         setFlag(1)
         history.push("/tree")
     }
-
     
     // const [name, setName] = useState("")
     // function handleSubmit(){
@@ -75,7 +71,7 @@ const TreeEdit = () => {
                         'font-size': '20px',
                         'border-width': '1px',
                         'width': '200px',
-                        'height': '50px',
+                        'height': '50px'
                         
                     }
                 },
@@ -91,7 +87,7 @@ const TreeEdit = () => {
                         'color': '#777',
                         'line-color': '#4FB872',
                         'line-style': 'solid',
-                        'curve-style': 'bezier',
+                        'curve-style': 'bezier'
                     }
                 },
                 
@@ -105,29 +101,28 @@ const TreeEdit = () => {
                         'text-outline-color': 'white'
                     }
                 }
-                ],
+                ]
                 
             }
         );
 
-            var countId = 0
+            let countId = 0
             cy.add([
-                    {group: "nodes", data: {id: "root", label: "Cotton"}},
+                    {group: "nodes", data: {id: "root", label: "Cotton"}}
                 ]);
 
-            for(let l1 in l1_sym){
+            for(const l1 in l1_sym){
                 cy.add([
                 {group: 'nodes', data: {id: "l1"+countId,label: l1_sym[l1]}},
                 {group: 'edges', data: {source: "root", target: "l1"+countId++}}
             ])
             }
-        
            
-            var layout = cy.layout({ name: 'breadthfirst', roots: ["root"], padding: 30 });
+            const layout = cy.layout({ name: 'breadthfirst', roots: ["root"], padding: 30 });
             layout.run();
             
             cy.on('tap','node',function(evt){
-                var node = evt.target._private.data;
+                const node = evt.target._private.data;
                 console.log(node.label)
                 setDisableBtn(false)
                 setParent(node.id)
@@ -136,7 +131,6 @@ const TreeEdit = () => {
             cyRef.current = cy
         }
 
-
         //http://65.0.8.183/crops/1/symptom/level/1
         //http://65.0.8.183/crops/1/symptom/1/children/102
         // console.log(name)
@@ -144,8 +138,6 @@ const TreeEdit = () => {
         React.useEffect(() => {            
              renderCytoscapeElement();
         },[])
-
-        
 
     return (
         <div>
@@ -160,8 +152,6 @@ const TreeEdit = () => {
         </div>
       </Alert>
     <div id="cy" style={{ width: "100%", height: "625px", display: "block", backgroundColor: "black"}}></div>
-
-
 
     {!show && <Button variant = "success" onClick={() => setShow(true)} disabled = {disableBtn}>Add</Button>}
 

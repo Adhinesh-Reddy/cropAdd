@@ -1,16 +1,15 @@
 import React,{useState} from 'react'
-import {useAlert} from 'react-alert'
+// import {useAlert} from 'react-alert'
 import {Alert, Form} from 'react-bootstrap'
-import TreeEdit from './TreeEdit'
-import { useHistory } from "react-router-dom";
-
+// import TreeEdit from './TreeEdit'
+// import { useHistory } from "react-router-dom";
 
 const TreeAlert = () => {
     // const alert = useAlert();
     const [name, setName] = useState("")
     const [flag, setFlag] = useState(0)
 
-    const history = useHistory();
+    // const history = useHistory();
 
     function handleSubmit(){
         setName(name)

@@ -21,7 +21,7 @@ import ForgotPassword from './Login/components/ForgotPassword';
 // import Solution from './Crops/Solution'
 // import {Sol} from './Crops/Sol'
 
-import Tree1 from './Tree/Tree1'
+// import Tree1 from './Tree/Tree1'
 import TreeData from './Tree/TreeData'
 import HomeProblem from './Home/HomeProblem'
 import HomeHeirarchy from './Home/HomeHeirarchy'

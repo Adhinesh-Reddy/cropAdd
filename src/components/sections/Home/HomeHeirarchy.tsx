@@ -1,8 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Card, Nav, ListGroup} from 'react-bootstrap';
-import {NavLink} from 'react-router-dom'
+// import {NavLink} from 'react-router-dom'
 import Tree1 from '../Tree/Tree1'
-import {useState} from 'react'
 import client from '../../../backend/client'
 
 const HomeHeirarchy = () => {
@@ -14,17 +13,14 @@ const HomeHeirarchy = () => {
 
   const [flag, setFlag] = useState(0)
     const [l1_sym, setl1_sym] = useState([
-        {sid: '', name: ''},
+        {sid: '', name: ''}
     ])
     const [l2_sym, setl2_sym] = useState([
-        {sid: '', parentId: '', name: ''},
+        {sid: '', parentId: '', name: ''}
     ])
     const [l3_sym, setl3_sym] = useState([
-        {sid: '', parentId: '', name: ''},
+        {sid: '', parentId: '', name: ''}
     ])
-
-    
-
 
     React.useEffect(() => {
             client.get("crops/1/symptom/level/1")
@@ -33,7 +29,6 @@ const HomeHeirarchy = () => {
                 console.log(res.data)
             })
         },[]);
-        
 
         React.useEffect(() => {
             client.get("crops/1/symptom/level/2")

@@ -1,13 +1,12 @@
 import React, {useState} from 'react'
 import {Form, Button} from 'react-bootstrap'
-import TreeEdit from './TreeEdit'
-import { useHistory } from "react-router-dom";
-
+// import TreeEdit from './TreeEdit'
+// import { useHistory } from "react-router-dom";
 
 const TreeAdd = () => {
     const[name, setName] = useState("")
     const[flag, setFlag] = useState(0)
-    const history = useHistory();
+    // const history = useHistory();
     
     function handleSubmit(){
         setName(name)

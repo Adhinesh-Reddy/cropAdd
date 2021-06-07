@@ -1,26 +1,20 @@
-import axios from 'axios';
-import React from 'react'
-import {useEffect} from 'react'
-import {useState} from 'react'
+// import axios from 'axios';
+import React,{useState} from 'react'
+// import {useEffect} from 'react'
 import client from '../../../backend/client'
 import Tree1 from './Tree1'
-
-
 
 function TreeData() {
     const [flag, setFlag] = useState(0)
     const [l1_sym, setl1_sym] = useState([
-        {sid: '', name: ''},
+        {sid: '', name: ''}
     ])
     const [l2_sym, setl2_sym] = useState([
-        {sid: '', parentId: '', name: ''},
+        {sid: '', parentId: '', name: ''}
     ])
     const [l3_sym, setl3_sym] = useState([
-        {sid: '', parentId: '', name: ''},
+        {sid: '', parentId: '', name: ''}
     ])
-
-    
-
 
     React.useEffect(() => {
             client.get("crops/1/symptom/level/1")
@@ -29,7 +23,6 @@ function TreeData() {
                 console.log(res.data)
             })
         },[]);
-        
 
         React.useEffect(() => {
             client.get("crops/1/symptom/level/2")

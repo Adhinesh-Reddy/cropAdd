@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import { FormattedMessage } from 'react-intl';
 import {Card, Nav, ListGroup, Button, Dropdown} from 'react-bootstrap';
 import { Container, Row, Col } from 'reactstrap';
-import {NavLink} from 'react-router-dom';
+// import {NavLink} from 'react-router-dom';
 
 const HomeProblem = () => {
 

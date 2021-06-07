@@ -7,7 +7,6 @@ import { AppContextInterface, AppContextProvider } from '../utils/AppContext';
 
 import './App.css';
 import Layout from './Layout/Layout';
-import Tree1 from './sections/Tree/Tree1';
 
 function App() {
   const [userLocale, setUL] = useState(LocaleHelper.getUserLanguageCode());

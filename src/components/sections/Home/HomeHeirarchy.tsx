@@ -52,7 +52,7 @@ const HomeHeirarchy = () => {
 
     return (
       <div>
-            <Card border = "dark" style= {{position: "absolute", width: "70%",left:"15%",top:"131px",margin: "0px" }}>
+            <Card border = "dark" style= {{position: "absolute", width: "88%",left:"10%",top:"131px",margin: "0px" }}>
           <Card.Header>
             <Nav className="justify-content-center" fill variant = "tabs" defaultActiveKey="/homeheirarchy">
               <Nav.Item>

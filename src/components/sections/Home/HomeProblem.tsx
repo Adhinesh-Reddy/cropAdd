@@ -16,7 +16,7 @@ const HomeProblem = () => {
   const [textColorAdd,setTextColorAdd]=useState('black');
     return (
       <div>
-      <Card border = "dark" style= {{position: "absolute", width: "70%",left:"15%",top:"131px",margin: "0px" }}>
+      <Card border = "dark" style= {{position: "absolute", width: "88%",left:"10%",top:"131px",margin: "0px" }}>
       <Card.Header>
         <Nav className="justify-content-center" fill variant = "tabs" defaultActiveKey="/homeproblem">
           <Nav.Item>
@@ -76,37 +76,33 @@ const HomeProblem = () => {
       <div>
         <p style={{color:"#696969",fontSize:"25px",paddingLeft:"70px"}}><FormattedMessage id='ExpertView.Text6'/><i className="fas fa-angle-down" style={{fontSize:"30px",color:"#C4C4C4",float:'right',paddingRight:"30px"}}></i></p>
         <br/>
-        <Container>
+        <Container style={{marginLeft: 'auto', marginRight: 'auto', textAlign:'center'}}> {/*changed*/}
           <Row>
-            <Col style={{color:"#000000",fontSize:"22px",paddingLeft:"170px"}}><b><FormattedMessage id='ExpertView.Text7'/></b></Col>
+            <Col style={{color:"#000000",fontSize:"22px"}}><b><FormattedMessage id='ExpertView.Text7'/></b></Col> {/*change paddingLeft: 170px*/}
             <Col style={{color:"#000000",fontSize:"22px"}}><b><FormattedMessage id='ExpertView.Text8'/></b></Col>
             <Col style={{color:"#000000",fontSize:"22px"}}><b><FormattedMessage id='ExpertView.Text9'/></b></Col>
             <Col style={{color:"#000000",fontSize:"22px"}}><b><FormattedMessage id='ExpertView.Text10'/></b></Col>
           </Row>
           <hr style={{ color: '#827A7A', backgroundColor: '#827A7A',height:"1px"}} />
           <Row>
-            <Col style={{color:"#000000",fontSize:"20px",paddingLeft:"170px"}}>Bored bolls</Col>
+            <Col style={{color:"#000000",fontSize:"20px"}}>Bored bolls</Col>{/*change paddingLeft: 170px*/}
             <Col style={{color:"#000000",fontSize:"20px"}}>L2</Col>
             <Col style={{color:"#000000",fontSize:"20px"}}>Bolls damage</Col>
             <Col style={{color:"#000000",fontSize:"20px"}}>Do bolls have holes?</Col>
           </Row>
           <hr style={{ color: '#827A7A', backgroundColor: '#827A7A',height:"1px",width:"97%"}} />
           <Row>
-            <Col style={{color:"#000000",fontSize:"20px",paddingLeft:"170px"}}>Premature shedding of bolls
-</Col>
+            <Col style={{color:"#000000",fontSize:"20px"}}>Premature shedding of bolls</Col>{/*change paddingLeft: 170px*/}
             <Col style={{color:"#000000",fontSize:"20px"}}>L2</Col>
             <Col style={{color:"#000000",fontSize:"20px"}}>Bolls damage</Col>
-            <Col style={{color:"#000000",fontSize:"20px"}}>Do you find any premature shedding of bolls?
-</Col>
+            <Col style={{color:"#000000",fontSize:"20px"}}>Do you find any premature shedding of bolls?</Col>
           </Row>
           <hr style={{ color: '#827A7A', backgroundColor: '#827A7A',height:"1px",width:"97%"}} />
           <Row>
-            <Col style={{color:"#000000",fontSize:"20px",paddingLeft:"170px"}}>Premature opening of bolls
-</Col>
+            <Col style={{color:"#000000",fontSize:"20px"}}>Premature opening of bolls</Col>{/*change paddingLeft: 170px*/}
             <Col style={{color:"#000000",fontSize:"20px"}}>L2</Col>
             <Col style={{color:"#000000",fontSize:"20px"}}>Bolls damage</Col>
-            <Col style={{color:"#000000",fontSize:"20px"}}>Do you detect any damaged bolls with premature opening?
-</Col>
+            <Col style={{color:"#000000",fontSize:"20px"}}>Do you detect any damaged bolls with premature opening?</Col>
           </Row>
         </Container>      
       </div>

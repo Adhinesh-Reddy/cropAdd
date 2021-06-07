@@ -16,6 +16,7 @@ function Tree1(props:any) {
     const [parent,setParent] = useState("")
     const [flag, setFlag] = useState(0)
     const [parentNode, setParentNode] = useState();
+    const [nodeData, setNodeData] = useState();
 
     
     
@@ -34,14 +35,14 @@ function Tree1(props:any) {
 
         for(let l2 in l2_sym){
             cyRef.current.add([
-                {group: "nodes", data: {id: l2_sym[l2].sid, label: l2_sym[l2].name, parentName: l2_sym[l2].parentId}},
+                {group: "nodes", data: {id: l2_sym[l2].sid, label: l2_sym[l2].name, level: l2_sym[l2].level,parentName: l2_sym[l2].parentId}},
                 {group: "edges", data: {source: l2_sym[l2].parentId, target: l2_sym[l2].sid}}
             ])
         }
         
         for(let l3 in l3_sym){
             cyRef.current.add([
-                {group: "nodes", data: {id: l3_sym[l3].sid, label: l3_sym[l3].name, parentName: l3_sym[l3].parentId}},
+                {group: "nodes", data: {id: l3_sym[l3].sid, label: l3_sym[l3].name, level: l3_sym.level, parentName: l3_sym[l3].parentId}},
                 {group: "edges", data: {source: l3_sym[l3].parentId, target: l3_sym[l3].sid}}
             ])
         }   
@@ -49,11 +50,12 @@ function Tree1(props:any) {
         
         cyRef.current.removeListener('tap');
         
-        cyRef.current.one('tap','node', function(evt){
+        cyRef.current.on('tap','node', function(evt){
             var node = evt.target._private.data;
             setDisableBtn(false)
             setParent(node.id)
-            setParentNode(node.parentName)
+            setParentNode(node.parent)
+            setNodeData(node)
             // console.log(node)
         })
         var layout = cyRef.current.layout({ name: 'breadthfirst', roots: ["root"] });
@@ -88,15 +90,73 @@ function Tree1(props:any) {
 
         // cyRef.current.remove('#'+parent)
         
-        // cyRef.current.add([
-        //     {group: 'nodes', data: {id: parent, label: name}},
-        //     {group: 'edges', data: {source: parentNode, target: parent}}
-        // ])
-
+        // console.log(nodeData)
         
+        if(nodeData.level == 1){
+            for(let l1 in l1_sym){
+                if(l1_sym[l1].sid == nodeData.id){
+                    l1_sym[l1].name = name;
+                }
+            }
+        }
+        else if(nodeData.level == 2){
+            for(let l2 in l2_sym){
+                if(l2_sym[l2].sid == nodeData.id){
+                    l2_sym[l2].name = name;
+                }
+            }
+        }
+        else{
+            for(let l3 in l3_sym){
+                if(l3_sym[l3].sid == nodeData.id){
+                    l3_sym[l3].name = name;
+                }
+            }
+        }
+        
+        for(let l1 in l1_sym){
+            cyRef.current.remove('#'+l1_sym[l1].sid)
+        }
+        for(let l2 in l2_sym){
+            cyRef.current.remove('#'+l2_sym[l2].sid)
+        }
+        for(let l3 in l3_sym){
+            cyRef.current.remove('#'+l3_sym[l3].sid)
+        }
 
+        for(let l1 in l1_sym){
+            cyRef.current.add([
+                {group: "nodes", data: {id: l1_sym[l1].sid, label: l1_sym[l1].name, level: l1_sym[l1].level, parentName: l1_sym[l1].parentId}},
+                {group: "edges", data: {source: "root", target: l1_sym[l1].sid}}
+            ])
+        }
+
+        for(let l2 in l2_sym){
+            cyRef.current.add([
+                {group: "nodes", data: {id: l2_sym[l2].sid, label: l2_sym[l2].name, level: l2_sym[l2].level,parentName: l2_sym[l2].parentId}},
+                {group: "edges", data: {source: l2_sym[l2].parentId, target: l2_sym[l2].sid}}
+            ])
+        }
+        
+        for(let l3 in l3_sym){
+            cyRef.current.add([
+                {group: "nodes", data: {id: l3_sym[l3].sid, label: l3_sym[l3].name, level: l3_sym.level, parentName: l3_sym[l3].parentId}},
+                {group: "edges", data: {source: l3_sym[l3].parentId, target: l3_sym[l3].sid}}
+            ])
+        }   
+        
         var layout = cyRef.current.layout({ name: 'breadthfirst', roots: ["root"] });
         layout.run();
+        cyRef.current.zoom({
+            level: 0.50, // the zoom level
+            renderedPosition: { x: 760, y: 315}
+        });
+        setName("")
+        setDisableBtn(true)
+    }
+
+    function handleDelete(){
+        cyRef.current.remove('#'+nodeData.id);
         
     }
     
@@ -245,7 +305,7 @@ function Tree1(props:any) {
 
                 for(let l1 in l1_sym){
                 cy.add([
-                    {group: "nodes", data: {id: l1_sym[l1].sid, label: l1_sym[l1].name, clicked: false, parent: l1_sym[l1].parentId}},
+                    {group: "nodes", data: {id: l1_sym[l1].sid, label: l1_sym[l1].name, level: l1_sym[l1].level,clicked: false, parentName: l1_sym[l1].parentId}},
                     {group: "edges", data: {source: "root", target: l1_sym[l1].sid}},
                 ])
             }
@@ -269,7 +329,7 @@ function Tree1(props:any) {
                      for(let l2 in l2_sym){
                          if(l2_sym[l2].parentId == node.id){
                 cy.add([
-                    {group: "nodes", data: {id: l2_sym[l2].sid, label: l2_sym[l2].name, clicked: false}},
+                    {group: "nodes", data: {id: l2_sym[l2].sid, label: l2_sym[l2].name, level: l2_sym[l2].level,clicked: false}},
                     {group: "edges", data: {source: node.id, target: l2_sym[l2].sid}},
                 ])
             }
@@ -285,7 +345,7 @@ function Tree1(props:any) {
                         for(let l3 in l3_sym){
                             if(l3_sym[l3].parentId == node.id){
                             cy.add([
-                                {group: "nodes", data: {id: l3_sym[l3].sid, label: l3_sym[l3].name, clicked: false}},
+                                {group: "nodes", data: {id: l3_sym[l3].sid, label: l3_sym[l3].name, level: l3_sym[l3].level,clicked: false}},
                                 {group: "edges", data: {source: node.id, target: l3_sym[l3].sid}},
                             ])
                             }
@@ -343,11 +403,11 @@ function Tree1(props:any) {
     return (
         <>
         <Alert show={show1 && show} variant="success">
-            <Form.Control type="text" placeholder="ID" value={id} onChange={(e) => setId(e.target.value)}/>
+            {/* <Form.Control type="text" placeholder="ID" value={id} onChange={(e) => setId(e.target.value)}/> */}
             <Form.Control type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)}/>
         <hr />
         <div className="d-flex justify-content">
-          <Button onClick={handleAdd} variant="outline-success">
+          <Button onClick={handleUpdate} variant="outline-success">
             Add Node
           </Button>
         </div>
@@ -356,6 +416,7 @@ function Tree1(props:any) {
             {!show && <Button variant = "success" onClick = {handleEdit}>Edit</Button>}
             {!show1 && <Button variant = "success" onClick={() => setShow1(true)} disabled = {disableBtn}>Add</Button>}
             {!show1 && <Button variant = "success" onClick={() => setShow1(true)} disabled = {disableBtn}>Update</Button>}
+            {!show1 && <Button variant = "success" onClick={handleDelete} disabled = {disableBtn}>Update</Button>}
             {!show1 && <Button variant = "success" onClick={handleTreeMode} disabled = {!disableBtn}>Tree Mode</Button>}
         </>
     )

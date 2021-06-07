@@ -19,7 +19,7 @@ function Home() {
   
   return (
     <div>
-    <Card border = "dark" style= {{position: "absolute", width: "70%",height:"111px",left:"15%",top:"131px",margin: "0px" }}>
+    <Card border = "dark" style= {{position: "absolute", width: "88%",height:"111px",left:"10%",top:"131px",margin: "0px" }}>
       <Card.Header>
         <Nav className="justify-content-center" fill variant = "tabs" defaultActiveKey="/home">
           <Nav.Item>

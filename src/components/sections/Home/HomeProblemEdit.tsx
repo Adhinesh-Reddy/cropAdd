@@ -9,6 +9,8 @@ const HomeProblemEdit = () => {
   const wheat = "../../../../assets/images/wheat.png"
   const sugarcane = "../../../../assets/images/sugarcane.png"
   const sunflower = "../../../../assets/images/sunflower.png"
+  const [backGroundColorView,setBackGroundColorView]=useState('white');
+  const [textColorView,setTextColorView]=useState('black');
   const [backGroundColorEdit,setBackGroundColorEdit]=useState('white');
   const [textColorEdit,setTextColorEdit]=useState('black');
     return (
@@ -38,6 +40,8 @@ const HomeProblemEdit = () => {
       <br/><br/>
       <div>
         <br/>
+        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+        <Button onClick={()=>{setBackGroundColorView("#4FB872");setTextColorView('white')}} style={{backgroundColor:backGroundColorView,borderColor:"black",borderStyle:"solid",borderRadius:"15px",width:"125px",color:textColorView,fontSize:"25px"}} href="/homeproblem"><FormattedMessage id="View"/></Button>
         &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
         <Button onClick={()=>{setBackGroundColorEdit("#4FB872");setTextColorEdit('white')}} style={{backgroundColor:backGroundColorEdit,borderColor:"black",borderStyle:"solid",borderRadius:"15px",width:"125px",color:textColorEdit,fontSize:"25px"}}><FormattedMessage id="Edit"/></Button>
         <i className="fa fa-trash-o" style={{fontSize:"36px",color:"#696969",float:'right',paddingRight:"48px"}}></i>

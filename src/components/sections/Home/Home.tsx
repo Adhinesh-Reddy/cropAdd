@@ -1,70 +1,73 @@
-// import React, { useContext } from "react";
-import {Card, Nav, ListGroup} from 'react-bootstrap';
-// import {NavLink} from 'react-router-dom'
+import React, { useContext } from 'react';
+// import { Container, Row, Col } from 'reactstrap';
+import { FormattedMessage } from 'react-intl';
 
-// import "./card-style.css";
-import "./home.scss";
-// import Card from "./Cards";
-// import client from "../../../backend/client";
-// import { ctxt } from './../../../utils/AppContext';
+import './card-style.css';
+import './home.scss';
+import Card from './Cards';
+import client from '../../../backend/client';
+import { ctxt } from './../../../utils/AppContext';
 
-const cotton = "../../../../assets/images/cotton.png"
-const wheat = "../../../../assets/images/wheat.png"
-const sugarcane = "../../../../assets/images/sugarcane.png"
-const sunflower = "../../../../assets/images/sunflower.png"
+const cotton = require('./../../../../assets/images/cotton.png');
+// const sugarcane = "./../../../assets/images/sugarcane.png";
+// const sunflower = "./../../../assets/images/sunflower.png";
+const wheat = require('./../../../../assets/images/wheat.png');
+
+type Crop = {
+  cid: number;
+  name: string;
+  image: string;
+};
 
 function Home() {
-  
+  const crops_img = [cotton, wheat];
+  const myContext = useContext(ctxt);
+  const [crops, setCrops] = React.useState([]);
+  const localeContext = React.useContext(ctxt);
+  const { locale, languages, ulSetter } = localeContext!; //eslint-disable-line
+  const codes = ['en', 'te'];
+  React.useEffect(() => {
+    console.log(codes);
+    client
+      .get('apicrops', {
+        params: {},
+        headers: {
+          'Accept-Language': myContext?.locale + '_' + 'IN',
+        },
+      })
+      .then(res => setCrops(res.data));
+  }, [myContext?.locale]);
   return (
-    <div>
-    <Card border = "dark" style= {{position: "absolute", width: "88%",height:"111px",left:"10%",top:"131px",margin: "0px" }}>
-      <Card.Header>
-        <Nav className="justify-content-center" fill variant = "tabs" defaultActiveKey="/home">
-          <Nav.Item>
-            <Nav.Link href="/home" >CROP</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="/homeproblem">PROBLEM</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="/homeheirarchy">HEIRARCHY</Nav.Link>
-          </Nav.Item>
-        </Nav>
-      </Card.Header>
-    </Card>
-    <Card style={{position: "absolute",width: "7%",top:"198px",padding:"10px"}}>
-      <ListGroup variant="flush">
-        <Nav.Item style={{backgroundColor:'#4FB872'}}>
-          <Nav.Link href = "/home">
-            <div>
-              <img src={cotton} alt="cotton" width='50px' height='50px'/>
+    <>
+      <div style={{ paddingTop: '30px', fontSize: '30px', paddingLeft: '750px', justifyContent: 'space-between' }}>
+        <FormattedMessage id='Select.Language' />
+        <br />
+        {codes.map(code => {
+          return (
+            <div
+              key={code}
+              className='btn py-1 themed-container'
+              onClick={() => ulSetter(code)}
+              style={{ fontSize: '25px', color: code === locale ? '#4FB872' : 'black' }}
+            >
+              {languages[code]}
             </div>
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item style={{padding:"0px"}}>
-          <Nav.Link href = "/home">
-            <div>
-              <img src={wheat} alt="cotton" width='50px' height='50px'/>
-            </div>
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item style={{padding:"0px"}}>
-          <Nav.Link href = "/home">
-            <div>
-              <img src={sugarcane} alt="cotton" width='50px' height='50px'/>
-            </div>
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item style={{padding:"0px"}}>
-          <Nav.Link href = "/home">
-            <div>
-              <img src={sunflower} alt="cotton" width='50px' height='50px'/>
-            </div>
-          </Nav.Link>
-        </Nav.Item>
-      </ListGroup>
-    </Card>
-    </div>
+          );
+        })}
+      </div>
+
+      <div className='container-fluid d-flex justify-content-center'>
+        <div className='row'>
+          {crops.map((crop: Crop, index: number) => {
+            return (
+              <div className='col-md-6' key={crop.cid}>
+                <Card imgsrc={crops_img[index]} text={crop.name} cid={crop.cid} />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </>
   );
 }
 

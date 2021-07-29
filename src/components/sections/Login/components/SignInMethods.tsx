@@ -32,7 +32,7 @@ export default function Login() {
           <h4 className="text-center mb-4"><FormattedMessage id='Login.Methods' /> </h4>
           <Form onSubmit={handleSubmitViaEmail}>
             <Button disabled={loading} className="w-100" type="submit">
-              <b>Email</b>
+              <b><FormattedMessage id="Email"/></b>
             </Button>
           </Form>
           <Form onSubmit={handleSubmitViaPhone}>
@@ -42,7 +42,7 @@ export default function Login() {
               className="w-100 mt-3"
               type="submit"
             >
-              <b>Phone</b>
+              <b><FormattedMessage id="Phone"/></b>
             </Button>
           </Form>
           <Form onSubmit={handleSubmitViaGoogle}>
@@ -52,7 +52,7 @@ export default function Login() {
               className="w-100 mt-3"
               type="submit"
             >
-              <b> Google </b>
+              <b> <FormattedMessage id="Google"/> </b>
             </Button>
           </Form>
         </div>

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "cropdarpan-c13c0"
+  },
+  "targets": {
+    "cropdarpan-c13c0": {
+      "hosting": {
+        "website": [
+          "cropdarpan"
+        ]
+      }
+    }
+  }
+}

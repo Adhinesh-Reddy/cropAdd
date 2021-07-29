@@ -1,0 +1,115 @@
+body{
+    background: #ffffff;
+}
+
+.card{
+    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.253) !important;
+    background-color: #F7F8FB;
+    width: auto;
+    height: auto;
+    border-radius: 5ch;
+    margin-inline: 3ch;
+    margin-right: 7ch;
+    margin-block-start: 2ch;
+}
+
+.card:hover{
+    /* box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.253) !important; */
+    transform: scale(1.2);
+    border-radius: 5ch;
+
+}
+
+.cardtext{
+    background-color: #FFFFFF;
+	width: 30rem;
+    height: 10rem;
+    border-radius: 10ch;
+    margin-inline: 3ch;
+    margin-right: 7ch;
+    margin-block-start: 2ch;
+}
+
+.cardtext:hover{
+    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.253) !important;
+    transform: scale(1);
+    border-radius: 2ch;
+
+}
+
+.cardsolution{
+    background-color: #F7F8FB;
+    width: "96%";
+    /* height: 60rem; */
+    border-radius: 10ch;
+    margin-inline: 3ch;
+    /* margin-right: 7ch; */
+    margin-block-start: 2ch;
+    border-radius: 2rem;
+    padding:20px;
+}
+.cardsolution:hover{
+    /* box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.253) !important; */
+    /* transform: scale(1); */
+    /* border-radius: 1ch; */
+}
+
+
+.cardalert{
+    width: 70rem;
+    height: auto;
+    border-radius: 4ch;
+    margin-inline: 3ch;
+    margin-right: 7ch;
+    margin-block-start: 2ch;
+    background-color:#FFFFFF;
+
+}
+
+/* .cardalert:hover{
+    box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.253) !important;
+    transform: scale(1);
+    border-radius: 1ch;
+} */
+
+.cardalertsymptom{
+    width: 70rem;
+    height: auto;
+    border-radius: 4ch;
+    margin-inline: 3ch;
+    margin-right: 7ch;
+    margin-block-start: 2ch;
+    background-color:#FFFFFF;
+}
+/* .cardalertsymptom:hover{
+    box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.253) !important;
+    transform: scale(1);
+    border-radius: 1ch;
+} */
+
+
+.card-text {
+    font-size: 1rem;
+    padding: 0.3rem 1.9rem;
+}
+
+.container-fluid .row{
+    padding-top: 8rem;
+    padding-right: 2rem;
+}
+
+.card-img{
+    height: 50px;
+    padding-left: 20cm;
+    padding-top: 10ch;
+
+}
+
+.card-img-top{
+    height: auto;
+    width: auto;
+    max-height: 30ch;
+    padding-top: 9ch;
+    padding-left: 3ch;
+    padding-right: 14ch;
+}

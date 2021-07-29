@@ -21,6 +21,6 @@
     "./src/**/*.ts",
     "./src/**/*.tsx",
     "src/components/sections/Login/contexts/AuthContext.js"
-, "src/components/sections/Tree/Tree.tjs"  ],
+  ],
   "exclude": ["node_modules", "dist", "build", "**/*.spec.ts"]
 }

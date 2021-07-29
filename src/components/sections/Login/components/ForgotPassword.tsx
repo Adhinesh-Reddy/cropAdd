@@ -37,14 +37,14 @@ export default function ForgotPassword() {
             <div className="row justify-content-center my-auto">
               <div className="col-md-12 col-10 my-5">
                 <h1 className="mb-5 text-center" style={{ color: 'white' }}>
-                  <b>Password Reset</b>
+                  <b><FormattedMessage id="Password.Reset"/></b>
                 </h1>
                 {error && <Alert variant="danger">{error}</Alert>}
                 {message && <Alert variant="success">{message}</Alert>}
                 <Form onSubmit={handleSubmit}>
                   <Form.Group id="email">
                     <Form.Label style={{ fontSize: '16px' }}>
-                      <b>Email</b>
+                      <b><FormattedMessage id="Email"/></b>
                     </Form.Label>
                     <Form.Control
                       type="email"
@@ -66,7 +66,7 @@ export default function ForgotPassword() {
                     type="submit"
                   >
                     <h4>
-                      <b> Reset Password</b>
+                      <b> <FormattedMessage id="Password.Reset"/> </b>
                     </h4>
                   </Button>
                 </Form>
@@ -74,8 +74,8 @@ export default function ForgotPassword() {
                 <br />
                 <br />
                 <div className="w-100">
-                  <h2 style={{ color: '#d8fa82' }}>
-                    <b>----- Login Methods -----</b>{' '}
+                  <h2 style={{ color: '#d8fa82',paddingLeft:'4rem' }}>
+                    <b> <FormattedMessage id="Login.Methods"/> </b>{' '}
                   </h2>
                   <br />
                 </div>
@@ -140,7 +140,7 @@ export default function ForgotPassword() {
                 style={{ color: 'green', fontSize: '18px' }}
                 className="text-center"
               >
-                Dont have an account?
+                <FormattedMessage id="Profile.Update1"/>
               </p>
               <Button
                 className="w-100"
@@ -152,7 +152,7 @@ export default function ForgotPassword() {
               >
                 <Link to="/signup" style={{ color: 'green' }}>
                   <h4 className="text-white">
-                    <b>Sign up</b>
+                    <b><FormattedMessage id="Signup"/></b>
                   </h4>
                 </Link>
               </Button>

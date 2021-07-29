@@ -14,7 +14,7 @@ const about = () => {
 
           <div >
             {/* <h3 className='about-title'>About us</h3> */}
-            <div className='about-description ' style={{fontSize:'20px'}}>
+            <div className='about-description text-left px-4 ' style={{fontSize:'20px',color: "black"}}>
               <p>
                 <FormattedMessage id='About.Text1' />
 

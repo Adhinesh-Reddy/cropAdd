@@ -75,7 +75,7 @@ export default function Login() {
                     type="submit"
                   >
                     <h4>
-                      <b className="fa fa-phone"> Login</b>
+                      <b className="fa fa-phone"> <FormattedMessage id="Login"/></b>
                     </h4>
                   </Button>
 

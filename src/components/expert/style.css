@@ -1,0 +1,19 @@
+.expertcard {
+  position: absolute;
+  /* padding-left: 105px; */
+  /* top: '131px'; */
+  top: 15%;
+  width: 94%;
+  left: 5%;
+  height: 80%;
+  /* borderTopLeftRadius: '16px'; */
+  /* borderTopRightRadius: '16px';    */
+}
+
+.expertsidecard {
+  position: absolute;
+  width: 80px;
+  top: 20%;
+  padding: 0px;
+  margin: 0px;
+}

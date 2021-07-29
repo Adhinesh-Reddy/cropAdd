@@ -60,7 +60,7 @@ export default function UpdateProfile() {
                 <Form onSubmit={handleSubmit}>
                   <Form.Group id="email">
                     <Form.Label style={{ fontSize: '16px' }}>
-                      <b>Email</b>
+                      <b><FormattedMessage id="Email"/></b>
                     </Form.Label>
                     <Form.Control
                       type="email"
@@ -73,7 +73,7 @@ export default function UpdateProfile() {
                   </Form.Group>
                   <Form.Group id="password">
                     <Form.Label style={{ fontSize: '16px' }}>
-                      <b>Password</b>
+                      <b><FormattedMessage id="Password"/></b>
                     </Form.Label>
                     <Form.Control
                       type="password"
@@ -106,7 +106,7 @@ export default function UpdateProfile() {
                     type="submit"
                   >
                     <h4>
-                      <b> Update</b>
+                      <b> <FormattedMessage id="Update"/></b>
                     </h4>
                   </Button>
                 </Form>
@@ -132,7 +132,7 @@ export default function UpdateProfile() {
               >
                 <Link to="/dashboard" style={{ color: 'green' }}>
                   <h4 className="text-white">
-                    <b>Cancel</b>
+                    <b><FormattedMessage id="Cancel"/></b>
                   </h4>
                 </Link>
               </Button>

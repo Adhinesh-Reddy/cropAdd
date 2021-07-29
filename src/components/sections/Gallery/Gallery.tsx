@@ -2,13 +2,13 @@ import React from 'react';
 import './gallery.scss'
 import { FormattedMessage } from 'react-intl';
 
-const Blog = () => {
+const Gallery = () => {
   return (
-    <p>
+    <div className="d-flex justify-content-center align-items-center" >
       <FormattedMessage id='Gallery.Title' />
 
-    </p>
+    </div>
   );
 };
 
-export default Blog;
+export default React.memo(Gallery);

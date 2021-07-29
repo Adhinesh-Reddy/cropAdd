@@ -16,6 +16,15 @@ messages.set('hi', messages_hi)
 messages.set('ma', messages_ma)
 messages.set('ka', messages_ka)
 
+const codeLanguages = {
+  'en': 'English',
+  'fr': 'French',
+  'te': 'Telugu',
+  'hi': 'Hindi',
+  'ma': 'Marathi',
+  'ka': 'kanada'
+}
+
 /**
  * Helper utility to provide support for i18n.
  */
@@ -45,4 +54,9 @@ export class I18NHelper {
     console.log('fallback with default language..')
     return messages.get(LocaleHelper.defaultLanguageCode())
   }
+
+  public static getAllAvailableLocales() {
+    return codeLanguages
+  }
+
 }

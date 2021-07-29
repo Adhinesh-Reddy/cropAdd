@@ -33,7 +33,7 @@ export default function Dashboard() {
                   className="mb-5 text-center heading"
                   style={{ color: 'white' }}
                 >
-                  <b className="fa fa-user-circle"> &nbsp;Profile</b>
+                  <b className="fa fa-user-circle"> &nbsp;<FormattedMessage id="Profile"/></b>
                 </h1>
                 {error && <Alert variant="danger">{error}</Alert>}
                 <p style={{ fontSize: '20px' }}>
@@ -56,7 +56,7 @@ export default function Dashboard() {
                 className="text-center"
               >
                 {' '}
-                Want to Logout?
+                <FormattedMessage id="Logout.Text1"/>
               </p>
               <Button
                 className="w-100"
@@ -70,7 +70,7 @@ export default function Dashboard() {
                 }}
               >
                 <h4 style={{ color: 'white' }}>
-                  <b> Log Out</b>
+                  <b> <FormattedMessage id="Logout"/></b>
                 </h4>
               </Button>
             </div>

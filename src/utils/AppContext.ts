@@ -1,13 +1,13 @@
-/* eslint-disable no-unused-vars */
 import * as React from 'react'
 
-export interface AppContextInterface {
+export interface LocaleContextInterface {
   locale: string
-  ulSetter: (lang: string) => void
+  ulSetter: (lang: string) => void // eslint-disable-line
+  languages: {[key: string] : string}
 }
 
-export const ctxt = React.createContext<AppContextInterface | null>(null)
+export const ctxt = React.createContext<LocaleContextInterface | null>(null)
 
-export const AppContextProvider = ctxt.Provider
+export const LocaleContextProvider = ctxt.Provider
 
-export const AppContextConsumer = ctxt.Consumer
+export const LocaleContextConsumer = ctxt.Consumer

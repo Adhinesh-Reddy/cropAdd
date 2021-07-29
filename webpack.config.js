@@ -31,7 +31,30 @@ module.exports = {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
-    ],
+      // {
+      //   test: /\.(png|jpg)$/,
+      //   use: {
+      //     loader: 'url-loader'
+      //   }
+      // }
+      // {
+      //   test: /\.(gif|png)$/, //Customise according to your need
+      //   include: '/assets',
+      //   use: [
+      //     {
+      //       loader: 'url-loader',
+      //       options: {
+      //         limit: 10000,
+      //         name: 'assets/[name]' + '.[ext]' //Path will be assets or image path
+      //       }
+      //     }
+      //  ]
+      // }
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource'
+      }
+    ]
   },
   devServer: {
     historyApiFallback: true,

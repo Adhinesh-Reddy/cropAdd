@@ -88,7 +88,7 @@ export default function Signup() {
                   <Form.Control
                     type="password"
                     style={{ fontSize: '13px' }}
-                    placeholder="   Enter Password"
+                    placeholder="Enter Password"
                     ref={passwordRef}
                     required
                   />
